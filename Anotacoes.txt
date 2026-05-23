@@ -1,0 +1,27 @@
+Fatores Impactados:
+    Umidade
+    Fertilidade
+    Biodiversidade
+    Vegetação
+    Solo
+
+Fatores de impacto:
+    Desmatamento - Exposição -> Erosão
+    Irrigação inadequada - Salinização
+    Sobrepastoreio - Compactação
+    Manejo incorreto da terra - Monocultura -> esgotamento de nutrientes
+    Mudanças climaticas - Aumento de temperaturas - Eventos extremos - Secas prolongadas
+
+Fatores de recuperação:
+    Reflorestamento - Efeito geral
+    Barragem Subterrânea - Recuperação da umidade do solo
+    Cisternas - Alivia a pressão sobre fontes naturais
+    Educação ambiental - Efeito geral a longo prazo
+    Agric de conservação - Preserva a Fertilidade do solo
+    Sistemas agroflorestais - Redução de temperaturas e conserva a umidade do solo
+
+Valores de impacto:
+
+    Baixo: 0.2 < x < 0.4
+    Médio: 0.4 < x < 0.6
+    Alto: 0.6 < x < 0.9
