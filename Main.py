@@ -5,6 +5,7 @@ from Gatilho import Gatilho
 from Impacto import Impacto
 import FatorImpacto
 import FatorRecuperacao
+from Estado import Estado
 # 0 - Umidade, 1 - Fertilidade, 2 - Biodiversidade, 3 - Vegetação, 4 - Solo
 if __name__== "__main__":
 
@@ -51,7 +52,8 @@ if __name__== "__main__":
     for ano in itertools.count(0, 1):
         if caatinga.estado["Solo"] > 0.3:
             caatinga.ciclo()
-            print(f"Ano {ano}: {np.round(caatinga.estado.valores, 2)}")
+            print(f"ano: {ano} - {caatinga.estado}")
+            
         else:
             print(f"Ano {ano}: solo irrecuperável, simulação encerrada.")
             break

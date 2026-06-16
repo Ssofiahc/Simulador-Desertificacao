@@ -12,3 +12,6 @@ class Estado:
     def __getitem__(self, item):
         id = self.labels.index(item)
         return self.valores[id]
+    
+    def __str__(self):
+        return "|".join([f"{l}: {v:.2f}" for l, v in zip(self.labels, self.valores)])

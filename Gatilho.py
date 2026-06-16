@@ -1,5 +1,4 @@
 import numpy as np
-
 class Gatilho:
     def __init__(self, nome, condicao, impacto):
         self.nome = nome

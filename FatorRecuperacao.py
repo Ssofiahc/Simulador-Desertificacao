@@ -2,9 +2,9 @@ import numpy as np
 from Impacto import Impacto
 
 RECUPERACAO = {
-    "BAIXA": 0.05,
-    "MEDIA": 0.1,
-    "ALTA": 0.2
+    "BAIXA": 0.1,
+    "MEDIA": 0.25,
+    "ALTA": 0.4
 }
 """
 Fatores de recuperação:

@@ -21,8 +21,13 @@ class Bioma:
         for f in self.fatorManual:
             f.atua(self.estado)
 
+        impactos_atuando = []
         for g in self.gatilhos:
             impacto = g.gatilho(self.estado)
             if impacto:
-                impacto.atua(self.estado)
+                impactos_atuando.append(impacto)
+
+        for impacto in impactos_atuando:
+            impacto.atua(self.estado)
+            
         self.estado.clip()

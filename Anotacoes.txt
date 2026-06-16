@@ -25,3 +25,11 @@ Valores de impacto:
     Baixo: 0.2 < x < 0.4
     Médio: 0.4 < x < 0.6
     Alto: 0.6 < x < 0.9
+
+Relações impacto x recuperação:
+
+    Desmatamento: Reflorestamento
+    Irrigação: Agricultura de conservação
+    Sobrepastoreio: Reflorestamento, Barragem, Agricultura de conservação, Sistemas agroflorestais, Educação
+    Manejo incorreto: Reflorestamento, Agricutura de conservação
+    Mud Climáticas: Barragem, Sistemas agroflorestais

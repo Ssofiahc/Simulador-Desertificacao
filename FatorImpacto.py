@@ -10,33 +10,38 @@ INTENSIDADE = {
 
 #DESMATAMENTO: Biodiversidade, Vegetação
 x = INTENSIDADE["ALTO"]
+taxa = x * 0.5
 mDesmatamento = np.eye(5)
-mDesmatamento[2,2] = 1 - x
-mDesmatamento[3,3] = 1 - x
+mDesmatamento[2,2] = 1 - taxa
+mDesmatamento[3,3] = 1 - taxa
 desmatamento = Impacto("Desmatamento", mDesmatamento)
 
 #IRRIGAÇÃO IRRESPONSÁVEL: Fertilidade
 x = INTENSIDADE["BAIXO"]
+taxa = x * 0.5
 mIrrigacao = np.eye(5)
-mIrrigacao[1,1] = 1 - x
+mIrrigacao[1,1] = 1 - taxa
 irrigacao = Impacto("Irrigação irresponsável", mIrrigacao)
 
 #SOBREPASTOREIO: Solo, Vegetação
 x = INTENSIDADE["MEDIO"]
+taxa = x * 0.5
 mSobrepastoreio = np.eye(5)
-mSobrepastoreio[4,4] = 1 - x
-mSobrepastoreio[3,3] = 1 - x
+mSobrepastoreio[4,4] = 1 - taxa
+mSobrepastoreio[3,3] = 1 - taxa
 sobrepastoreio = Impacto("Sobrepastoreio", mSobrepastoreio)
 
 #MANEJO INCORRETO: Biodiversidade, Fertilidade
 x = INTENSIDADE["MEDIO"]
+taxa = x * 0.5
 mManejo = np.eye(5)
-mManejo[2,2] = 1 - x
-mManejo[1,1] = 1 - x
+mManejo[2,2] = 1 - taxa
+mManejo[1,1] = 1 - taxa
 manejo = Impacto("Manejo incorreto da terra", mManejo)
 
 #MUDANÇAS CLIMÁTICAS: Umidade
 x = INTENSIDADE["ALTO"]
+taxa = x * 0.5
 mMudancas = np.eye(5)
-mMudancas[0,0] = 1 - x
+mMudancas[0,0] = 1 - taxa
 mudancas = Impacto("Mudanças Climáticas", mMudancas)
