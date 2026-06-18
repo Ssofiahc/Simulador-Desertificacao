@@ -6,7 +6,9 @@ from Impacto import Impacto
 import FatorImpacto
 import FatorRecuperacao
 from Estado import Estado
+from FatorEnfrentamento import fatorEnfrentamento
 # 0 - Umidade, 1 - Fertilidade, 2 - Biodiversidade, 3 - Vegetação, 4 - Solo
+
 if __name__== "__main__":
 
     #Queimadas
@@ -37,22 +39,28 @@ if __name__== "__main__":
     )
 
     #Teste
-    caatinga = Bioma("Caatinga", [0.8, 0.7, 0.5, 0.7, 0.8], [0.01]*5)
+    # 0 - Umidade, 1 - Fertilidade, 2 - Biodiversidade, 3 - Vegetação, 4 - Solo
+    caatinga = Bioma("Caatinga", [0.5, 0.6, 0.5, 0.7, 0.6], [0.01]*5)
     #Gatilhos
     caatinga.addGatilho(gatilhoQueimadas)
     caatinga.addGatilho(gatilhoErosao)
     #Fatores Impacto
     caatinga.fatorManual.append(FatorImpacto.desmatamento)
-    caatinga.fatorManual.append(FatorImpacto.mudancas)
-    caatinga.fatorManual.append(FatorImpacto.irrigacao)
+    #caatinga.fatorManual.append(FatorImpacto.mudancas)
+    #caatinga.fatorManual.append(FatorImpacto.irrigacao)
     #Fatores Recuperação
-    caatinga.fatorManual.append(FatorRecuperacao.barragem)
+    #caatinga.fatorManual.append(FatorRecuperacao.barragem)
     caatinga.fatorManual.append(FatorRecuperacao.reflorestamento)
+    fiscalizacao = fatorEnfrentamento("Fiscalização Rigorosa", FatorImpacto.desmatamento, 0.9)
 
     for ano in itertools.count(0, 1):
         if caatinga.estado["Solo"] > 0.3:
+            if ano == 2:
+                caatinga.fatorManual.append(fiscalizacao)
+                print("Fisacalização rigorosa iniciada!")
             caatinga.ciclo()
             print(f"ano: {ano} - {caatinga.estado}")
+
             
         else:
             print(f"Ano {ano}: solo irrecuperável, simulação encerrada.")

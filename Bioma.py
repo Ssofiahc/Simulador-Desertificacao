@@ -19,7 +19,13 @@ class Bioma:
             self.estado.valores += self.recuperacao
         
         for f in self.fatorManual:
-            f.atua(self.estado)
+            if hasattr(f, "efeito"):
+                f.atua(self.estado)
+
+        for f in self.fatorManual:
+            if not hasattr(f, "efeito"):
+                f.atua(self.estado)
+
 
         impactos_atuando = []
         for g in self.gatilhos:
