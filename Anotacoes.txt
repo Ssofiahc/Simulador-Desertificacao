@@ -20,6 +20,11 @@ Fatores de recuperação:
     Agric de conservação - Preserva a Fertilidade do solo
     Sistemas agroflorestais - Redução de temperaturas e conserva a umidade do solo
 
+Fatores de Enfrentamento:
+    Fiscalização rigorosa - Desmatamento, 90%
+    Educação - Manejo incorreto, 20%
+    Pastejo Rotativo - Sobrepastoreio, 80%
+
 Valores de impacto:
 
     Baixo: 0.2 < x < 0.4
@@ -30,6 +35,6 @@ Relações impacto x recuperação:
 
     Desmatamento: Reflorestamento
     Irrigação: Agricultura de conservação
-    Sobrepastoreio: Reflorestamento, Barragem, Agricultura de conservação, Sistemas agroflorestais, Educação
+    Sobrepastoreio: Reflorestamento, Barragem, Agricultura de conservação, Sistemas agroflorestais
     Manejo incorreto: Reflorestamento, Agricutura de conservação
-    Mud Climáticas: Barragem, Sistemas agroflorestais
+    Mud Climáticas: Barragem, Cisternas, Sistemas agroflorestais

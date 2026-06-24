@@ -16,12 +16,12 @@ mDesmatamento[2,2] = 1 - taxa
 mDesmatamento[3,3] = 1 - taxa
 desmatamento = Impacto("Desmatamento", mDesmatamento)
 
-#IRRIGAÇÃO IRRESPONSÁVEL: Fertilidade
+#IRRIGAÇÃO INADEQUADA: Fertilidade
 x = INTENSIDADE["BAIXO"]
 taxa = x * 0.5
 mIrrigacao = np.eye(5)
 mIrrigacao[1,1] = 1 - taxa
-irrigacao = Impacto("Irrigação irresponsável", mIrrigacao)
+irrigacao = Impacto("Irrigação inadequada", mIrrigacao)
 
 #SOBREPASTOREIO: Solo, Vegetação
 x = INTENSIDADE["MEDIO"]

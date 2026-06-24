@@ -5,6 +5,9 @@ class fatorEnfrentamento:
 #Ações mais bruscas que interrompem ou diminuem um fator de impacto
 #Exemplo: Fiscalização rigorosa contra desmatamento ilegal
 
+#Fiscalização(Desmatamento)
+#Educação(Manejo incorreto da terra)
+
     def __init__(self, nome, fator, efeito):
         self.nome = nome
         self.fator = fator

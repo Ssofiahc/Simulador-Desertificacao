@@ -20,7 +20,10 @@ class Bioma:
         
         for f in self.fatorManual:
             if hasattr(f, "efeito"):
-                f.atua(self.estado)
+                if f.fator in self.fatorManual:
+                    f.atua(self.estado)
+                else:
+                    f.desativa()
 
         for f in self.fatorManual:
             if not hasattr(f, "efeito"):
