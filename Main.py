@@ -15,11 +15,13 @@ from FatorEnfrentamento import fatorEnfrentamento
 if __name__== "__main__":
 
     # Configurações da simulação:
+
     config = valida()
     print(f"Configuração do bioma '{config.get('nome_bioma', 'Desconhecido')}' foi bem sucedida!")
 
     # "Tradução" do JSON para o Python
     # Mapas:
+
     mapa_impacto = {
         "desmatamento": FatorImpacto.desmatamento,
         "irrigacao": FatorImpacto.irrigacao,
@@ -35,13 +37,64 @@ if __name__== "__main__":
         "sistemas": FatorRecuperacao.sistemas,
         "agricultura": FatorRecuperacao.agriculturaConservacao
     }
+    
+    #---GATILHOS---
+    # São ativados de forma automática quando uma condição específica é atingida
 
-    #Queimadas
+    #--POSITIVOS--
+
+    # Chuva
+
+    # Umi X Fert: Níveis ideais de umidade aceleram a decomposição da matéria orgânica e mantêm a atividade 
+    # microbiológica essencial para a fertilidade
+    # Fertilidade X Outros: Aumento da fertilidade impacta na qualidade da biodiversidade, vegetação e logicamente, do solo
+
+    mChuva = np.eye(5)
+    mChuva[0,0] = 1.5
+    mChuva[1,1] = 1.3
+    chuva = Impacto("Chuva", mChuva)
+
+    gatilhoChuva = Gatilho(
+        nome="Chuva",
+        condicao=lambda est: est["Umidade"] > 0.75,
+        impacto=chuva
+    )
+
+    # Fertilidade -> Solo
+    # Atividade microbiológica
+
+    mMicro = np.eye(5)
+    mMicro[4,4] = 1.3
+    microbio = Impacto("Atividade Microbiológica", mMicro)
+
+    gatilhoMicro = Gatilho(
+        nome="Atividade Microbiológica",
+        condicao=lambda est: est["Fertilidade"] > 0.6,
+        impacto=microbio
+    )
+
+    # Solo -> Vegetação e Biodiversidade
+    # Desenvolvimento da flora
+
+    mFlora = np.eye(5)
+    mFlora[2,2] = 1.3
+    mFlora[3,3] = 1.3
+    flora = Impacto("Desenvolvimento da flora", mFlora)
+
+    gatilhoFlora = Gatilho(
+        nome="Desenvolvimento da Flora",
+        condicao=lambda est: est["Solo"] > 0.6,
+        impacto=flora
+    )
+
+    #--NEGATIVOS--
+
+    # Queimadas
 
     mQueimadas = np.eye(5)
-    mQueimadas[0,0] = 0.2 #x = 0.8
-    mQueimadas[3,3] = 0.2 #x = 0.8
-    mQueimadas[4,4] = 0.2 #x = 0.8
+    mQueimadas[0,0] = 0.2
+    mQueimadas[3,3] = 0.3
+    mQueimadas[4,4] = 0.4
     queimadas = Impacto("Queimadas", mQueimadas)
 
     gatilhoQueimadas = Gatilho(
@@ -50,11 +103,11 @@ if __name__== "__main__":
         impacto=queimadas
     )
 
-    #Erosão
+    # Erosão
 
     mErosao = np.eye(5)
-    mErosao[1,1] = 0.3 #x = 0.8
-    mErosao[4,4] = 0.3 #x = 0.8
+    mErosao[1,1] = 0.35
+    mErosao[4,4] = 0.35
     erosao = Impacto("Erosão", mErosao)
 
     gatilhoErosao = Gatilho(
@@ -80,22 +133,26 @@ if __name__== "__main__":
     print("Estado Inicial:", bioma.estado)
     print("")
 
-    #Gatilhos:
+    #--Gatilhos--
 
     bioma.addGatilho(gatilhoQueimadas)
     bioma.addGatilho(gatilhoErosao)
+    bioma.addGatilho(gatilhoChuva)
+    bioma.addGatilho(gatilhoMicro)
+    bioma.addGatilho(gatilhoFlora)
 
-    #Fatores Enfrentamento:
+    #---Fatores Enfrentamento---
 
-    #Pesquisa: cerca de 90% do desmatamento na caatinga é ilegal, portanto a fiscalisação rigoroza diminuiria o impacto em 90% (0.9)
+    #--Pesquisa: cerca de 90% do desmatamento na caatinga é ilegal, portanto a fiscalisação rigoroza diminuiria o impacto em 90% (0.9)
     fiscalizacao = fatorEnfrentamento("Fiscalização Rigorosa", FatorImpacto.desmatamento, 0.9)
 
     educacao = fatorEnfrentamento("Educação", FatorImpacto.manejo, 0.2)
 
-    #Pesquisa: pastejo rotativo reduzirá em 80% o sobrepastoreio
+    #--Pesquisa: pastejo rotativo reduzirá em 80% o sobrepastoreio
     pastejo_rotativo = fatorEnfrentamento("Pastejo Rotativo", FatorImpacto.sobrepastoreio, 0.8)
 
-    #Armazenando os dados para o gráfico de saída:
+    #---Armazenando os dados para o gráfico de saída---
+
     historico_anos = []
     historico_umidade = []
     historico_fertilidade = []
@@ -106,7 +163,7 @@ if __name__== "__main__":
     for ano in itertools.count(0, 1):
         if np.all(bioma.estado.valores > 0.3):
 
-            #Bioma suportou mais de dois anos: politicas públicas (Fiscalização, Educação, Pastejo Rotativo)
+            #--Bioma suportou mais de dois anos: politicas públicas (Fiscalização, Educação, Pastejo Rotativo)
             if ano == 2:
 
                 bioma.fatorManual.append(fiscalizacao)
@@ -132,7 +189,7 @@ if __name__== "__main__":
             historico_vegetacao.append(bioma.estado["Vegetação"])
             historico_solo.append(bioma.estado["Solo"])
 
-            #Caso todos os valores atinjam o máximo (1), simulação encerra 
+            #--Caso todos os valores atinjam o máximo (1), simulação encerra 
             if np.all(bioma.estado.valores == 1):
                 print(f"Ano {ano}: bioma completamente recuperado, simulação encerrada.")
                 break

@@ -14,6 +14,7 @@ taxa = x * 0.5
 mDesmatamento = np.eye(5)
 mDesmatamento[2,2] = 1 - taxa
 mDesmatamento[3,3] = 1 - taxa
+mDesmatamento[4,4] = 1 - (taxa/2)
 desmatamento = Impacto("Desmatamento", mDesmatamento)
 
 #IRRIGAÇÃO INADEQUADA: Fertilidade
