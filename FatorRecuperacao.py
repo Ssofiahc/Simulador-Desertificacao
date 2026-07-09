@@ -36,14 +36,6 @@ barragem = Impacto("Barragem Subterrânea", mBarragem)
 #CISTERNA
 cisterna = Impacto("Cisternas", np.eye(5), incremento=[0.1, 0, 0, 0, 0])
 
-#EDUCAÇÃO: Solo
-"""
-x = RECUPERACAO["BAIXA"]
-mEducacao = np.eye(5)
-mEducacao[4,4] = 1 + x
-educacao = Impacto("Educação", mEducacao)
-"""
-
 #AGRICULTURA DE CONSERVAÇÃO: Fertilidade, Solo
 x = RECUPERACAO["MEDIA"]
 mAgric = np.eye(5)

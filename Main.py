@@ -50,8 +50,8 @@ if __name__== "__main__":
     # Fertilidade X Outros: Aumento da fertilidade impacta na qualidade da biodiversidade, vegetação e logicamente, do solo
 
     mChuva = np.eye(5)
-    mChuva[0,0] = 1.5
-    mChuva[1,1] = 1.3
+    mChuva[0,0] = 1.3
+    mChuva[1,1] = 1.2
     chuva = Impacto("Chuva", mChuva)
 
     gatilhoChuva = Gatilho(
