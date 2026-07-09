@@ -38,3 +38,9 @@ Relações impacto x recuperação:
     Sobrepastoreio: Reflorestamento, Barragem, Agricultura de conservação, Sistemas agroflorestais
     Manejo incorreto: Reflorestamento, Agricutura de conservação
     Mud Climáticas: Barragem, Cisternas, Sistemas agroflorestais
+
+CENÁRIOS '.JSON':
+configuracao: melhora rápida
+configuracao2: gráfico ocilante
+configuracao3: bioma resiste 5 anos mas não sobrevive
+configuracao4: bioma demora mas resiste
