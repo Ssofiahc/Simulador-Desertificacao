@@ -1,0 +1,2 @@
+Cenários '.json':
+configuracao: 
