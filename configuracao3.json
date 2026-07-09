@@ -1,0 +1,7 @@
+{
+  "nome_bioma": "Cerrado",
+  "estado_inicial": [1.0, 1.0, 1.0, 1.0, 1.0],
+  "taxa_recuperacao": [0.15, 0.0, 0.0, 0.0, 0.0],
+  "impacto_inicial": ["mudancas"],
+  "recuperacao_inicial": []
+}

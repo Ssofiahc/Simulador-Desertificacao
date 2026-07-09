@@ -1,0 +1,7 @@
+{
+  "nome_bioma": "Caatinga",
+  "estado_inicial": [0.74, 0.65, 0.70, 0.70, 0.70],
+  "taxa_recuperacao": [0.12, 0.05, 0.02, 0.02, 0.02],
+  "impacto_inicial": ["mudancas", "manejo"],
+  "recuperacao_inicial": []
+}
