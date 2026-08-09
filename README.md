@@ -1,0 +1,49 @@
+Projeto tem o intuito de simular o processo de desertificação nos biomas brasileiros a partir de condições iniciais informadas a partir de um 
+arquivo de entrada.
+Apesar de ter sido focado inicialmente em um processo específico, pode ser utilizado para simulações referentes a outras situações a partir de 
+alterações simples nos códigos.
+
+Fatores Impactados:
+    Umidade
+    Fertilidade
+    Biodiversidade
+    Vegetação
+    Solo
+
+Fatores de impacto:
+    Desmatamento - Exposição do solo -> Erosão
+    Irrigação inadequada - Salinização
+    Sobrepastoreio - Compactação 
+    Manejo incorreto da terra - Monocultura -> esgotamento de nutrientes
+    Mudanças climaticas - Aumento de temperaturas - Eventos extremos - Secas prolongadas
+
+Fatores de recuperação:
+    Reflorestamento - Efeito geral
+    Barragem Subterrânea - Recuperação da umidade do solo
+    Cisternas - Alivia a pressão sobre fontes naturais
+    Educação ambiental - Efeito geral a longo prazo
+    Agric de conservação - Preserva a Fertilidade do solo
+    Sistemas agroflorestais - Redução de temperaturas e conserva a umidade do solo
+
+Fatores de Enfrentamento:
+    Fiscalização rigorosa - Desmatamento, 90%
+    Educação - Manejo incorreto, 20%
+    Pastejo Rotativo - Sobrepastoreio, 80%
+
+Valores de impacto:
+    Baixo: 0.2 < x < 0.4
+    Médio: 0.4 < x < 0.6
+    Alto: 0.6 < x < 0.9
+
+Relações impacto x recuperação:
+    Desmatamento: Reflorestamento
+    Irrigação: Agricultura de conservação
+    Sobrepastoreio: Reflorestamento, Barragem, Agricultura de conservação, Sistemas agroflorestais
+    Manejo incorreto: Reflorestamento, Agricutura de conservação
+    Mud Climáticas: Barragem, Cisternas, Sistemas agroflorestais
+
+CENÁRIOS '.JSON':
+    configuracao: melhora rápida
+    configuracao2: gráfico ocilante
+    configuracao3: bioma resiste 5 anos mas não sobrevive
+    configuracao4: recuperação longa mas o bioma resiste
